@@ -26,6 +26,11 @@ body {
 .img {
     padding-top: 1.0rem;
 }
-.card{
+
+.card {
     background-color: whitesmoke;
+}
+
+.buttonHolder {
+    text-align: center;
 }
