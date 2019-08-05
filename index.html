@@ -58,10 +58,21 @@
                                 <label for="contact">Phone Number</label>
                                 <input type="number" class="form-control" id="contact" placeholder="0711225588">
                             </div>
+                            <div class="form-group">
+                                <label for="type">Type</label>
+                                <select class="form-control" id="type">
+                                    <option value="Student">Student</option>
+                                    <option value="Friend">Friend</option>
+                                    <option value="Parent">Parent</option>
+                                    <option value="Child">Child</option>
+                                    <option value="Relative">Relative</option>
+                                    <option value="Organization">Organization</option>
+                                </select>
+                            </div>
                             <div class="buttonHolder">
                                 <input type="button" id="submit" name="submit" class="btn btn-primary" value="Submit">
                                 <a id="spoc" name="spoc" class="btn btn-secondary active" role="button"
-                                    aria-pressed="true">SPOC</a>
+                                    aria-pressed="true">SPOC Bootcamp</a>
                             </div>
                         </div>
                     </div>
@@ -79,14 +90,16 @@
             var lname = document.getElementById("lastName").value
             var email = document.getElementById("email").value
             var phone = document.getElementById("contact").value
+            var type = document.getElementById("type").value
 
-            if (fname != "" && lname != "" && email != "" && phone != "") {
+            if (fname != "" && lname != "" && email != "" && phone != "" && type !="") {
                 $.post("http://moringasign.000webhostapp.com/processentry.php",
                     {
                         fname: fname,
                         lname: lname,
                         email: email,
                         phone: phone,
+                        type: type,
                     },
                     function (data, status) {
                         console.log("printing success", data);
