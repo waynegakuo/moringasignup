@@ -31,6 +31,7 @@
 </head>
 
 <body>
+    
     <div class="container">
         <div class="my-form">
             <div class="row justify-content-center">
@@ -78,22 +79,23 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>    
     </div>
 </body>
 <script>
     $(document).ready(function () {
         $("#submit").on('click', function (e) {
             e.preventDefault();
-
+            
             var fname = document.getElementById("firstName").value
             var lname = document.getElementById("lastName").value
             var email = document.getElementById("email").value
             var phone = document.getElementById("contact").value
             var type = document.getElementById("type").value
 
-            if (fname != "" && lname != "" && email != "" && phone != "" && type !="") {
-                $.post("http://moringasign.000webhostapp.com/processentry.php",
+            if (fname != "" && lname != "" && email != "" && phone != "" && type != "") {
+                $("#submit").attr("disabled", true);
+                $.post("https://moringasign.000webhostapp.com/processentry.php",
                     {
                         fname: fname,
                         lname: lname,
@@ -108,7 +110,7 @@
                             self.location.href = 'index.html';
                         }
                         else {
-                            alert(data)
+                            alert(data);
                         }
                     });
             }
